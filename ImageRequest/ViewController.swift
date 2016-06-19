@@ -23,6 +23,6 @@ class ViewController: UIViewController {
         
         // TODO: Add all the networking code here!
         
-        let imageURL = NSURL(string: "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg")
+        let imageURL = NSURL(string: "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg")!
     }
 }
