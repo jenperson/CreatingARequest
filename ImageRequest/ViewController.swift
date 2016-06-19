@@ -28,7 +28,14 @@ class ViewController: UIViewController {
         
         // create the task
         let task = NSURLSession.sharedSession().dataTaskWithURL(imageURL) { (data, response, error) in
+            
             print("task finished")
+            
+            if error == nil{
+                let downloadedImage = UIImage(data: data!)
+                
+                self.imageView.image = downloadedImage
+            }
         }
         
         // begin task
