@@ -23,6 +23,16 @@ class ViewController: UIViewController {
         
         // TODO: Add all the networking code here!
         
+        // display image is a cat
         let imageURL = NSURL(string: "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg")!
+        
+        // create the task
+        let task = NSURLSession.sharedSession().dataTaskWithURL(imageURL) { (data, response, error) in
+            print("task finished")
+        }
+        
+        // begin task
+        task.resume()
+        
     }
 }
