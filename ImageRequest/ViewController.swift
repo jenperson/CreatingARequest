@@ -24,17 +24,22 @@ class ViewController: UIViewController {
         // TODO: Add all the networking code here!
         
         // display image is a cat
-        let imageURL = NSURL(string: "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg")!
+        let imageURL = NSURL(string: "http://i.amz.mshcdn.com/KRUEW_Zm_0UvTD97QnKID9MUqmk=/150x150/2012%2F12%2F04%2Fd0%2Fcat.c4A")!
         
         // create the task
         let task = NSURLSession.sharedSession().dataTaskWithURL(imageURL) { (data, response, error) in
             
+            // this part isn't really necessary but shows status in output for the purposes of practice
             print("task finished")
             
-            if error == nil{
+            // show image if no error is found
+            if error == nil {
                 let downloadedImage = UIImage(data: data!)
                 
-                self.imageView.image = downloadedImage
+                // refresh the status to load image in foreground
+                performUIUpdatesOnMain {
+                    self.imageView.image = downloadedImage
+                }
             }
         }
         
